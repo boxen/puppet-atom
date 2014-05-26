@@ -2,7 +2,7 @@
 
 Install [Atom](http://atom.io), hackable text editor for the 21st Century
 
-[![Build Status](https://travis-ci.org/boxen/puppet-atom.svg?=master)](https://travis-ci.org/boxen/puppet-boxen)
+[![Build Status](https://travis-ci.org/boxen/puppet-atom.svg?=master)](https://travis-ci.org/boxen/puppet-atom)
 
 ## Usage
 
