@@ -1,6 +1,6 @@
 require "puppet/provider/package"
 
-Puppet::Type.type(:package).provide :apm, :parent => Puppet::Provider::Package do
+Puppet::Type.type(:package).provide(:apm, :parent => Puppet::Provider::Package) do
   desc "Atom packages via `apm`."
 
   has_feature :installable, :uninstallable, :upgradeable, :versionable
@@ -61,7 +61,7 @@ Puppet::Type.type(:package).provide :apm, :parent => Puppet::Provider::Package d
 
     command << "--no-color"
 
-    execute command, self.class.command_opts
+    execute(command, self.class.command_opts)
   end
 
   def update
