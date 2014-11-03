@@ -6,9 +6,8 @@
 class atom::config {
   $dir        = "/Users/${::luser}/.atom"
   $packagedir = "${dir}/packages"
-  $apmloc     = "${boxen::config::bindir}/apm"
 
-  file { [$dir, $packagedir, $apmloc]:
+  file { [$dir, $packagedir]:
     ensure => directory
   }
 }
