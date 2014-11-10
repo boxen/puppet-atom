@@ -8,6 +8,7 @@ Install [Atom](http://atom.io), hackable text editor for the 21st Century
 
 ```puppet
 include atom
+atom::package { 'minimap': }
 ```
 
 ## Required Puppet Modules
