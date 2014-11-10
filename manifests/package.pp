@@ -10,8 +10,8 @@
 define atom::package() {
   require atom::config
 
-  $packname = "Install Atom package: $name"
-  $command = "${boxen::config::bindir}/apm install $name"
+  $packname = "Install Atom package: ${name}"
+  $command = "${boxen::config::bindir}/apm install ${name}"
 
   exec { $packname:
     command => $command
