@@ -8,6 +8,12 @@ Install [Atom](http://atom.io), hackable text editor for the 21st Century
 
 ```puppet
 include atom
+
+# install the linter package
+atom::package { 'linter': }
+
+# install the monokai theme
+atom::theme { 'monokai': }
 ```
 
 ## Required Puppet Modules
