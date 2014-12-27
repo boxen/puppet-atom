@@ -6,11 +6,11 @@
 define atom::theme (
   $ensure = 'latest'
 ) {
-  include atom
+  require atom
 
-  package { $name:
+  ensure_resource('package', $name, {
     ensure   => $ensure,
     provider => 'apm',
-    require  => File["${boxen::config::bindir}/apm"]
-  }
+    require  => Package['atom'],
+  })
 }
