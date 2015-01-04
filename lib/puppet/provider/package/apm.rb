@@ -78,11 +78,7 @@ Puppet::Type.type(:package).provide(:apm, :parent => Puppet::Provider::Package) 
   end
 
   def self.home
-    if boxen_home = Facter.value(:boxen_home)
-      "#{boxen_home}/homebrew"
-    else
-      "/usr/local/homebrew"
-    end
+    Facter.value(:homebrew_root)
   end
 
   def self.homedir_prefix

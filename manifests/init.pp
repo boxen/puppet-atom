@@ -2,28 +2,35 @@
 #
 # Usage:
 #
-#     include atom
+#   include atom
+#
+# Parameters:
+#
+#   packages
+#     An array of packages to install
+#   themes
+#     An array of themes to install
 class atom (
-  $ensure = 'present'
+  $ensure   = 'present',
+  $packages = [],
+  $themes   = [],
 ) {
-  package { 'Atom':
-    ensure   => $ensure,
-    flavor   => 'zip',
-    provider => 'compressed_app',
-    source   => 'https://atom.io/download/mac'
+
+  require brewcask
+
+  if !defined(Package['atom']) {
+    package { 'atom':
+      ensure          => $ensure,
+      provider        => 'brewcask',
+      install_options => '--appdir=/Applications',
+    }
   }
 
-  file { "${boxen::config::bindir}/apm":
-    ensure  => link,
-    target  => '/Applications/Atom.app/Contents/Resources/app/apm/node_modules/.bin/apm',
-    mode    => '0755',
-    require => Package['Atom']
-  }
+  $_ensure = $ensure ? { present => latest, default => $ensure }
+  ensure_resource('package', concat($packages, $themes), {
+    ensure   => $_ensure,
+    provider => 'apm',
+    require  => Package['atom'],
+  })
 
-  file { "${boxen::config::bindir}/atom":
-    ensure  => link,
-    target  => '/Applications/Atom.app/Contents/Resources/app/atom.sh',
-    mode    => '0755',
-    require => Package['Atom']
-  }
 }

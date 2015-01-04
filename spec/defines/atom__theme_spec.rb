@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'atom::theme' do
+  let(:facts) { default_test_facts }
   let(:title)  { 'example' }
 
   it do
