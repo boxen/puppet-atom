@@ -22,7 +22,10 @@ class atom (
     package { 'atom':
       ensure          => $ensure,
       provider        => 'brewcask',
-      install_options => '--appdir=/Applications',
+      install_options => [
+        '--appdir=/Applications',
+        "--binarydir=${boxen::config::bindir}"
+      ]
     }
   }
 
