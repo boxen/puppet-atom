@@ -20,6 +20,7 @@ atom::theme { 'monokai': }
 
 * `boxen`
 * `stdlib`
+* `brewcask`
 
 ## Development
 
