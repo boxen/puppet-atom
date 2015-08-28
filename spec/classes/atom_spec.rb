@@ -13,7 +13,7 @@ describe 'atom' do
     should contain_package('atom').with({
       :ensure          => 'present',
       :provider        => 'brewcask',
-      :install_options => '--appdir=/Applications',
+      :install_options => ['--appdir=/Applications', '--binarydir=/test/boxen/bin'],
     })
 
     %w(package-1 package-2 theme-1 theme-2).each do |pkg|
