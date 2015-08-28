@@ -5,3 +5,5 @@ rvm:
   - "1.8.7"
   - "2.0.0"
 sudo: false
+env:
+  - GITHUB_API_TOKEN=ca479276173dab512e9800470fa16875d7293e1d
